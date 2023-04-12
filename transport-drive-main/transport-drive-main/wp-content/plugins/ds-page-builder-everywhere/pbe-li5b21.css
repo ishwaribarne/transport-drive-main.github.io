@@ -1,0 +1,383 @@
+/*
+ * Modified by Aspen Grove Studios:
+ * - 2018-12-28, 2018-12-31: improve CSS for frontend builder display
+ * - 2018-12-31: add "click to edit" label, cursor; move CSS from pbe.php file into this file
+ * - 2019-01-01: add some TinyMCE CSS from WordPress
+ * - 2019-01-02: further dialog styling
+ */
+
+.et_fb_editing_enabled .mce-content-body[contenteditable="true"] .pbe-li-sc,
+#tinymce .pbe-li-sc {
+    background    : #EDE4F8;
+    display       : block;
+    color         : #6C2EB9;
+    position      : relative;
+    text-align    : center;
+    border        : 2px dashed #6C2EB9;
+    line-height   : 26px;
+    padding       : 30px;
+    border-radius : 6px;
+    font-size     : 0;
+    margin-bottom : 30px;
+}
+
+.et_fb_editing_enabled .mce-content-body[contenteditable="true"] .pbe-li-sc:before,
+#tinymce .pbe-li-sc:before {
+    content   : attr(data-itemname);
+    font-size : 18px;
+    cursor    : pointer;
+}
+
+.et_fb_editing_enabled .mce-content-body[contenteditable="true"] .pbe-li-sc:hover:after,
+#tinymce .pbe-li-sc:hover:after {
+    content   : "click to edit";
+    font-size : 14px;
+    position  : absolute;
+    right     : 5px;
+    top       : 0;
+    cursor    : pointer;
+}
+
+.et_fb_editing_enabled .mce-content-body[contenteditable="true"] .pbe-li-sc > * {
+    display : none;
+}
+
+.mce-pbe-li-btn {
+    background : red;
+}
+
+/*
+ * The following CSS is copied from WordPress by Automattic, copyright 2011-2018 by the contributors.
+ * Licensed GPLv2; see gpl-2.0.txt in the same directory as this file for license text.
+ * wp-includes/css/editor.css
+ */
+
+/* TinyMCE windows */
+#mce-modal-block,
+#mce-modal-block.mce-fade {
+    opacity    : 0.7;
+    filter     : alpha(opacity=70);
+    transition : none;
+    background : #000;
+}
+
+.mce-window {
+    border-radius          : 0;
+    box-shadow             : 0 3px 6px rgba(0, 0, 0, 0.3);
+    -webkit-font-smoothing : subpixel-antialiased;
+    transition             : none;
+}
+
+.mce-window .mce-container-body.mce-abs-layout {
+    overflow : visible;
+}
+
+.mce-window .mce-window-head {
+    background    : #FCFCFC;
+    border-bottom : 1px solid #DDD;
+    padding       : 0;
+    min-height    : 36px;
+}
+
+.mce-window .mce-window-head .mce-title {
+    color       : #444;
+    font-size   : 18px;
+    font-weight : 600;
+    line-height : 36px;
+    margin      : 0;
+    padding     : 0 36px 0 16px;
+}
+
+.mce-window .mce-window-head .mce-close,
+.mce-window-head .mce-close .mce-i-remove {
+    color       : transparent;
+    top         : 0;
+    right       : 0;
+    width       : 36px;
+    height      : 36px;
+    padding     : 0;
+    line-height : 36px;
+    text-align  : center;
+}
+
+.mce-window-head .mce-close .mce-i-remove:before {
+    font       : normal 20px/36px dashicons;
+    text-align : center;
+    color      : #666;
+    width      : 36px;
+    height     : 36px;
+    display    : block;
+}
+
+.mce-window-head .mce-close:hover .mce-i-remove:before,
+.mce-window-head .mce-close:focus .mce-i-remove:before {
+    color : #00A0D2;
+}
+
+.mce-window-head .mce-close:focus .mce-i-remove,
+div.mce-tab:focus {
+    box-shadow : 0 0 0 1px #5B9DD9,
+    0 0 2px 1px rgba(30, 140, 190, .8);
+}
+
+.mce-window .mce-window-head .mce-dragh {
+    width : calc(100% - 36px);
+}
+
+.mce-window .mce-foot {
+    border-top : 1px solid #DDD;
+}
+
+/* Buttons in modals */
+.mce-primary button,
+.mce-primary button i {
+    text-align  : center;
+    color       : #FFF;
+    text-shadow : none;
+    padding     : 0;
+    line-height : 26px;
+}
+
+.mce-window .mce-btn {
+    color              : #555;
+    background         : #F7F7F7;
+    text-decoration    : none;
+    font-size          : 13px;
+    line-height        : 26px;
+    height             : 28px;
+    margin             : 0;
+    padding            : 0;
+    cursor             : pointer;
+    border             : 1px solid #CCCCCC;
+    -webkit-appearance : none;
+    border-radius      : 3px;
+    white-space        : nowrap;
+    box-shadow         : 0 1px 0 #CCCCCC;
+}
+
+/* Remove the dotted border on :focus and the extra padding in Firefox */
+.mce-window .mce-btn::-moz-focus-inner {
+    border-width : 0;
+    border-style : none;
+    padding      : 0;
+}
+
+.mce-window .mce-btn:hover,
+.mce-window .mce-btn:focus {
+    background   : #FAFAFA;
+    border-color : #999;
+    color        : #23282D;
+}
+
+.mce-window .mce-btn:focus {
+    border-color : #5B9DD9;
+    box-shadow   : 0 0 3px rgba(0, 115, 170, .8);
+}
+
+.mce-window .mce-btn:active {
+    background   : #EEE;
+    border-color : #999;
+    box-shadow   : inset 0 2px 5px -3px rgba(0, 0, 0, 0.5);
+    transform    : translateY(1px);
+}
+
+.mce-window .mce-btn.mce-disabled {
+    color        : #A0A5AA !important;
+    border-color : #DDD !important;
+    background   : #F7F7F7 !important;
+    box-shadow   : none !important;
+    text-shadow  : 0 1px 0 #FFF !important;
+    cursor       : default;
+    transform    : none !important;
+}
+
+.mce-window .mce-btn.mce-primary {
+    background      : #0085BA;
+    border-color    : #0073AA #006799 #006799;
+    box-shadow      : 0 1px 0 #006799;
+    color           : #FFF;
+    text-decoration : none;
+    text-shadow     : 0 -1px 1px #006799,
+    1px 0 1px #006799,
+    0 1px 1px #006799,
+    -1px 0 1px #006799;
+}
+
+.mce-window .mce-btn.mce-primary:hover,
+.mce-window .mce-btn.mce-primary:focus {
+    background   : #008EC2;
+    border-color : #006799;
+    color        : #FFF;
+}
+
+.mce-window .mce-btn.mce-primary:focus {
+    box-shadow : 0 1px 0 #0073AA,
+    0 0 2px 1px #33B3DB;
+}
+
+.mce-window .mce-btn.mce-primary:active {
+    background     : #0073AA;
+    border-color   : #006799;
+    box-shadow     : inset 0 2px 0 #006799;
+    vertical-align : top;
+}
+
+.mce-window .mce-btn.mce-primary.mce-disabled {
+    color        : #66C6E4 !important;
+    background   : #008EC2 !important;
+    border-color : #007CB2 !important;
+    box-shadow   : none !important;
+    text-shadow  : 0 -1px 0 rgba(0, 0, 0, 0.1) !important;
+    cursor       : default;
+}
+
+.mce-menubtn.mce-fixed-width span {
+    overflow-x    : hidden;
+    text-overflow : ellipsis;
+    width         : 82px;
+}
+
+/* End CSS copied from WordPress */
+
+/* Following code originally from pbe.php file */
+.mce-pbe-li-btn {
+    border        : 1px solid #555D66;
+    border-radius : 4px;
+    padding       : 0 4px;
+    color         : inherit !important;
+}
+
+.mce-pbe-li-btn span {
+    font-weight : 400;
+    color       : #555D66;
+}
+
+.mce-pbe-li-btn:before {
+    position               : absolute;
+    left                   : 6px;
+    top                    : 4px;
+    font-family            : "etbuilder";
+    -webkit-font-smoothing : antialiased;
+    content                : "<";
+    font-weight            : 400;
+    font-size              : 16px;
+}
+
+.mce-container[aria-label="Insert Layout From Divi Library"] .mce-window-head {
+    background    : #6C2EB9;
+    padding       : 14px 14px 14px 44px;
+    border-radius : 5px 5px 0 0;
+}
+
+.mce-container[aria-label="Insert Layout From Divi Library"] .mce-reset, .mce-container[aria-label="Insert Layout From Divi Library"] {
+    border-radius : 8px;
+}
+
+.mce-container[aria-label="Insert Layout From Divi Library"] .mce-title {
+    color       : #FFF;
+    font-weight : 100;
+    font-size   : 22px;
+}
+
+.mce-container[aria-label="Insert Layout From Divi Library"] .mce-title:before {
+    font-family            : "etbuilder";
+    -webkit-font-smoothing : antialiased;
+    content                : "<";
+    font-weight            : 400;
+    font-size              : 30px;
+    position               : absolute;
+    top                    : 14px;
+    left                   : 18px;
+}
+
+.mce-container[aria-label="Insert Layout From Divi Library"] .mce-window-head .mce-close {
+    background    : transparent;
+    height        : 64px;
+    width         : 64px;
+    border-radius : 0 7px 0 0;
+}
+
+.mce-container[aria-label="Insert Layout From Divi Library"] .mce-window-head .mce-close:hover {
+    background : #4F2288;
+}
+
+.mce-container[aria-label="Insert Layout From Divi Library"] .mce-window-head .mce-close .mce-i-remove:before {
+    font-family : "etbuilder";
+    content     : "\"";
+    font-size   : 30px;
+    color       : #FFF;
+}
+
+.mce-container[aria-label="Insert Layout From Divi Library"] .mce-abs-layout-item .mce-btn {
+    border     : 0;
+    box-shadow : none;
+    height     : 50px;
+    margin-top : 10px;
+}
+
+.mce-container[aria-label="Insert Layout From Divi Library"] .mce-label {
+    font-size  : 18px;
+    margin-top : 10px;
+}
+
+.mce-container[aria-label="Insert Layout From Divi Library"] .mce-listbox {
+    left  : 160px;
+    width : 410px;
+}
+
+.mce-container[aria-label="Insert Layout From Divi Library"] .mce-listbox > * {
+    color : #000;
+}
+
+.mce-container[aria-label="Insert Layout From Divi Library"] .mce-listbox .mce-caret {
+    border-top-color : #000;
+}
+
+.mce-container[aria-label="Insert Layout From Divi Library"] .mce-menu {
+    background    : #FFF;
+    border-radius : 0;
+    width         : 408px;
+}
+
+.mce-container[aria-label="Insert Layout From Divi Library"] .mce-menu-item {
+    padding : 14px;
+}
+
+.mce-menu .mce-menu-item-normal.mce-active, .mce-menu .mce-menu-item-preview.mce-active, .mce-menu .mce-menu-item.mce-selected, .mce-menu .mce-menu-item:focus, .mce-menu .mce-menu-item:hover {
+    color      : #303030;
+    background : #F1F1F1;
+}
+
+.mce-menu-item.mce-active.mce-menu-item-normal .mce-text, .mce-menu-item.mce-active.mce-menu-item-normal .mce-ico {
+    color : #000;
+}
+
+.mce-container[aria-label="Insert Layout From Divi Library"] .mce-foot .mce-btn {
+    position      : absolute;
+    width         : 50% !important;
+    left          : 50% !important;
+    top           : 26px !important;
+    height        : 50px;
+    border        : 0;
+    box-shadow    : none;
+    border-radius : 0 0px 6px 0px;
+    background    : #00C3AA;
+}
+
+.mce-container[aria-label="Insert Layout From Divi Library"] .mce-foot .mce-btn.mce-last {
+    left          : 0% !important;
+    border-radius : 0px 0 0px 6px;
+    background    : #008BDB;
+}
+
+.mce-container[aria-label="Insert Layout From Divi Library"] .mce-foot .mce-btn span {
+    color     : #FFF;
+    font-size : 16px;
+}
+
+.mce-foot {
+    border-width : 0;
+}
+
+/* End code originally from pbe.php file */
+
